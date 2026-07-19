@@ -123,7 +123,6 @@ void JoyUSB_init()
     if( USB_PacketSetup(9, packet.data) == 0)
         return;
     databuflen = USB_PacketIn(0, databuf);
-    printdata_asc(databuflen, databuf);
 
     packet = (USBPacket) {{USB_PID_DATA0,0x00,0x00}};
     if( USB_PacketOut(1, packet.data) == 0)
@@ -197,7 +196,6 @@ void JoyUSB_init()
     if( USB_PacketSetup(9, packet.data) == 0)
         return;
     databuflen = USB_PacketIn(0x80, databuf);
-    printdata_asc(databuflen, databuf);
 
     packet = (USBPacket) {{USB_PID_DATA0,0x00,0x00}};
     if( USB_PacketOut(1, packet.data) == 0)
